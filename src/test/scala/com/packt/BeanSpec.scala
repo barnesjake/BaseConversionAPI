@@ -14,9 +14,16 @@ class BeanSpec extends FlatSpec {
       case _ => fail
     }
   }
+
   "Binary" should "throw error when initialised with a non numeric string" in {
     intercept[IllegalArgumentException] {
       Binary("XYZ")
+    }
+  }
+
+  "Hexadecimal" should "throw error when initialised with a non numeric string" in {
+    intercept[IllegalArgumentException] {
+      Hexadecimal("XYZ")
     }
   }
 
