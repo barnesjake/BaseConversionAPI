@@ -14,4 +14,6 @@ package object packt {
 
   case class Hexadecimal(number: String) extends Number
 
+  case class Octal(number: String) extends Number
+
 }

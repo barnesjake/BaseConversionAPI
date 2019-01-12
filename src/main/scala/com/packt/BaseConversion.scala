@@ -32,5 +32,15 @@ object BaseConversion {
     else toHexadecimal(num / 16, hexTable((num mod 16).toInt).toString ++ str)
   }
 
+  def decimalToOctal(number: Decimal): Octal = {
+    Octal(toOctal(BigInt(number.number), "").toString)
+  }
+
+  @tailrec
+  def toOctal(num: BigInt, acc: String): String = {
+    if (num < 8) num.toString + acc
+    else toOctal(num / 8, (num mod 8).toInt.toString ++ acc)
+  }
+
 
 }

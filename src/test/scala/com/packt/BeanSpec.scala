@@ -27,4 +27,10 @@ class BeanSpec extends FlatSpec {
     }
   }
 
+  "Octal" should "throw error when initialised with a  non numeric string" in {
+    intercept[IllegalArgumentException] {
+      Octal("XYZ")
+    }
+  }
+
 }
