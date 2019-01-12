@@ -42,5 +42,11 @@ object BaseConversion {
     else toOctal(num / 8, (num mod 8).toInt.toString ++ acc)
   }
 
+  def octalToDecimal(octal: Octal): Decimal = {
+    //convert octal to decimal
+
+    Decimal(octal.toString)
+  }
+
 
 }
