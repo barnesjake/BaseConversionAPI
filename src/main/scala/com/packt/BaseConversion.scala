@@ -1,5 +1,7 @@
 package com.packt
+
 import scala.annotation.tailrec
+
 object BaseConversion {
 
   def decimalToBinary(x: Decimal): Binary = {
@@ -20,7 +22,7 @@ object BaseConversion {
   }
 
   val hexTable =
-    Array('0','1','2','3','4','5','6','7','8','9','A','B','C','D','E','F')
+    Array('0', '1', '2', '3', '4', '5', '6', '7', '8', '9', 'A', 'B', 'C', 'D', 'E', 'F')
 
   def decimalToHexadecimal(number: Decimal): Hexadecimal = {
     Hexadecimal(toHexadecimal(BigInt(number.number), "").toString)
@@ -43,10 +45,9 @@ object BaseConversion {
   }
 
   def octalToDecimal(octal: Octal): Decimal = {
-    //convert octal to decimal
-
-    Decimal(octal.toString)
+    val seq = octal.number.reverse.zipWithIndex.map {
+      case (a, i) => a.toString.toInt * math.pow(8, i)
+    }
+    Decimal(seq.sum.toInt.toString)
   }
-
-
 }
